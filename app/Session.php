@@ -26,5 +26,13 @@ class Session extends Model
     public function examdivs(){
         return $this->hasMany('App\Examdiv');
     }
-    
+    public function studentdb(){
+        return $this->hasMany('App\Studentdb');        
+    }
+    public function studentcr(){
+        return $this->hasMany('App\Studentcr');        
+    }
+    public function studentdbsubj(){
+        return $this->hasMany('App\Studentdbsubj');        
+    }
 }
