@@ -19,3 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         'user' => User::all()
     ]);
 });
+
+Route::post('/studentdb', function (Request $request){
+
+    return response([
+        'msg' => $request['name']
+    ]);
+});
