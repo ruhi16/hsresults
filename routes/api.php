@@ -13,16 +13,21 @@ use App\User;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    // return $request->user();
-    return response([
-        'user' => User::all()
-    ]);
-});
+Route::post('/register','Api\Auth\RegisterController@register');
+Route::post('/login','Api\Auth\LoginController@login');
+Route::post('/refresh','Api\Auth\LoginController@refresh');
 
-Route::post('/studentdb', function (Request $request){
 
-    return response([
-        'msg' => $request['name']
-    ]);
+
+Route::middleware('auth:api')->group(function(){
+
+    Route::get('/user', function (Request $request) {    
+        return response([
+            'user' => User::all()
+        ]);
+    });
+
+    Route::post('logout', 'Api\Auth\LoginController@logout');
+
+
 });
