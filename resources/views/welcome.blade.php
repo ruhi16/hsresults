@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel <br/>Hari Narayan Das
+                    Laravel <br/>Hari Narayan Das...
                 </div>
 
                 
