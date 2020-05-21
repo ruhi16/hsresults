@@ -18,7 +18,7 @@ class RegisterController extends Controller
 {
     private $client;
     public function __construct(){
-        $this->client = Client::find(2);
+        $this->client = Client::find(3);
     }
 
     public function register(Request $request){
