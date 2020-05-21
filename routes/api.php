@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
+use App\DB;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,7 +15,10 @@ use App\User;
 */
 
 Route::get('/test', function(){
-    return response(['msg' => 'tested oke!!!']);
+    
+    $clients = \DB::table('oauth_clients')->get();
+
+    return response(['msg' => $clients]);
 });
 
 Route::post('/register','Api\Auth\RegisterController@register');
