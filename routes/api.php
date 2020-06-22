@@ -30,8 +30,9 @@ Route::post('/refresh','Api\Auth\LoginController@refresh');
 Route::middleware('auth:api')->group(function(){
 
     Route::get('/user', function (Request $request) {    
+        $user = auth()->user();
         return response([
-            'user' => User::all()
+            'user' => $user //User::all()
         ]);
     });
 
