@@ -43,7 +43,7 @@ class LoginController extends Controller
         ];
 
 
-        $user = auth()->user();// \Auth::user();
+        $user = User::find(auth()->user()->id);// \Auth::user();
         Mail::to('email@email.com')->send(new WelcomeMail($user));
 
         $request->request->add($params);        
