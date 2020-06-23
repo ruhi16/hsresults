@@ -8,8 +8,16 @@ use Laravel\Passport\Client;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+
+
+
 use Carbon\Carbon;
 use App\User;
+
+
 
 class LoginController extends Controller
 {
@@ -33,6 +41,10 @@ class LoginController extends Controller
             "passowrd"      =>  request('password'),
             "scope"         =>  ""
         ];
+
+
+        $user = Auth::user();
+        Mail::to('email@email.com')->send(new WelcomeMail($user));
 
         $request->request->add($params);        
         $proxy = Request::create('oauth/token', 'POST');  
@@ -63,7 +75,9 @@ class LoginController extends Controller
 
 
     public function logout(Request $request){
-        $accessToken = \Auth::user()->token();
+        $accessToken = Auth::user()->token();
+        
+
         DB::table('oauth_refresh_tokens')
             ->where('access_token_id', $accessToken->id)
             ->update(['revoked' => true]);
