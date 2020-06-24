@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+
 use Carbon\Carbon;
 
 use App\User;
@@ -45,7 +48,13 @@ class RegisterController extends Controller
         ];
         
         $request->request->add($params);        
-        $proxy = Request::create('oauth/token', 'POST');        
+        $proxy = Request::create('oauth/token', 'POST'); 
+        
+        //send email for otp
+        $user = User::where('email', request('email'))->first();  
+        if($user != null){      
+            Mail::to(request('email'))->send(new WelcomeMail($user));
+        }
         
         return Route::dispatch($proxy);
 

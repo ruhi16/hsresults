@@ -42,12 +42,15 @@ class LoginController extends Controller
             "scope"         =>  ""
         ];
 
-
-        $user = User::find(auth()->user()->id);// \Auth::user();
-        Mail::to('email@email.com')->send(new WelcomeMail($user));
-
         $request->request->add($params);        
         $proxy = Request::create('oauth/token', 'POST');  
+
+
+        $user = User::where('email', request('email'))->first();  
+        if($user != null){      
+            Mail::to(request('email'))->send(new WelcomeMail($user));
+        }
+
         return Route::dispatch($proxy);
 
     }

@@ -29,8 +29,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::find(1);
+        //$user = User::find(2);
+        //dd($user);
+        $user = auth()->user();
         Mail::to('email@email.com')->send(new WelcomeMail($user));
+
+
+
         return view('home');
     }
 }
