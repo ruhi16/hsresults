@@ -1,9 +1,10 @@
 <?php
 
+Route::get('/test', 'TestController@member');
+
+
 
 Route::get('/', function () {
-
-
 // $epoch = time();
 // echo($epoch ."xxxxx");
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateMonthactionschedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('monthactionschedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('designation');
-            $table->string('membership_no')->nullable();
-            $table->date('membership_date')->nullable();
-            $table->string('pan_no')->nullable();
-            $table->string('account_no')->nullable();
-            $table->integer('society_id');
-            $table->boolean('is_loan_issued')->nullable();
+            $table->integer('monthaction_id');
+            $table->string('monthaction_status');
+            $table->integer('for_month');
+            $table->integer('for_year');
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
@@ -36,6 +32,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('monthactionschedules');
     }
 }

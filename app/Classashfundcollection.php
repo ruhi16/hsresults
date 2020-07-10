@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Classashfundcollection extends Model
 {
     protected $guard = [];
 
