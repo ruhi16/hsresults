@@ -16,20 +16,24 @@ class CreateLoanassignsTable extends Migration
         Schema::create('loanassigns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('member_id');
-            $table->integer('loanspcification_id');
-            $table->decimal('loan_amount');
-            $table->String('loan_type');
-            $table->decimal('loan_roi');
-            $table->decimal('loan_sch');
-            $table->integer('loan_term');
-            $table->date('loan_date');
+            $table->integer('loanspcification_id')->nullable();
+            
+            $table->String('loan_type')->nullable();
+            
+            $table->decimal('loan_amount')->nullable();            
+            $table->date('loan_date')->nullable();
+
+            $table->decimal('loan_roi')->nullable();
+            $table->decimal('loan_sch')->nullable();
+            $table->integer('loan_term')->nullable();
+            
             $table->integer('loanreceivedfrbank_id')->nullable();
 
-            $table->decimal('curr_bal');
+            $table->decimal('curr_bal')->nullable();
 
-            $table->integer('next_due_days');
-            $table->integer('next_due_month');
-            $table->integer('next_due_year');
+            $table->integer('next_due_days')->nullable();
+            $table->integer('next_due_month')->nullable();
+            $table->integer('next_due_year')->nullable();
 
 
 

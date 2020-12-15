@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Loanassign;
 use App\DB;
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,7 @@ use App\DB;
 |
 */
 
-Route::get('/test', function(){
-    
-    $clients = \DB::table('oauth_clients')->get();
-
-    return response(['msg' => $clients]);
-});
+Route::get('/test', 'Api\TestController@index');
 
 Route::post('/register','Api\Auth\RegisterController@register');
 Route::post('/login','Api\Auth\LoginController@login');
@@ -31,12 +27,43 @@ Route::middleware('auth:api')->group(function(){
 
     Route::get('/user', function (Request $request) {    
         $user = auth()->user();
-        return response([
-            'user' => $user //User::all()
+      
+        $member = $user->member;
+        
+        $loanassigns = Loanassign::where('member_id', $member->id)->get();
+
+
+
+        $payments = [];
+
+        foreach($loanassigns as $loanassign){
+            $payments = $loanassign->loanpayments;
+            
+            
+
+        }
+
+        
+        $thfundstatus = $member->thfundmasters;
+        $thfundcollection = $member->thfundmonthcollections;
+
+
+        return response()->json([
+            'user' => $member,
+            'loanassign'    => $loanassigns,
         ]);
+
+
+
+        // return response([
+        //     'user'  =>  $user->member, 
+        //     'loanassigns'   => $loanassigns,
+            
+        // ]);
     });
 
     Route::post('logout', 'Api\Auth\LoginController@logout');
+    
 
 
 });

@@ -53,7 +53,7 @@ class RegisterController extends Controller
         //send email for otp
         $user = User::where('email', request('email'))->first();  
         if($user != null){      
-            Mail::to(request('email'))->send(new WelcomeMail($user));
+            //Mail::to(request('email'))->send(new WelcomeMail($user));
         }
         
         return Route::dispatch($proxy);

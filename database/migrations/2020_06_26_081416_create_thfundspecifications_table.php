@@ -15,6 +15,13 @@ class CreateThfundspecificationsTable extends Migration
     {
         Schema::create('thfundspecifications', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->decimal('monthly_premium');
+            $table->integer('yearly_roi');         
+
+            $table->date('date_of_activation');
+            
+            $table->string('status')->nullable;
             $table->timestamps();
         });
     }

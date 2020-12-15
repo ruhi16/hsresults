@@ -31,8 +31,10 @@ Route::get('/', function () {
 // $displayDate->setTimezone(new DateTimeZone($timezoneTo));
 // echo $displayDate->format('d-m-Y H:i:s');
 
+
 // Convert date to epoch or unix timestamp in PHP
 // We can convert human readable date to timestamp using PHP strtotime() function. The function convert English textual datetime into a Unix timestamp.
+
 
 // $timestamp = strtotime("2019/02/24");
 // echo $timestamp;

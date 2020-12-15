@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Loanassign;
 use App\Loanpayment;
 use App\Thfundmonthcollection;
+use App\Thfundmaster;
+use App\User;
 
 
 
@@ -25,7 +27,18 @@ class Member extends Model
     }
 
 
+    public function thfundmasters(){
+        return $this->hasMany('App\Thfundmaster');
+    }
+
+
     public function thfundmonthcollections(){
         return $this->hasMany('App\Thfundmonthcollection');
+    }
+
+
+
+    public function user(){
+        return $this->belongsToOne('App\User');
     }
 }
