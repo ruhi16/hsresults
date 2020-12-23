@@ -12,7 +12,7 @@ class MembersTableSeeder extends Seeder
     public function run()
     {
         DB::table('members')->insert([  
-            ['id'=> 10 ,'user_id'=> 0 ,'name'=>'Md. Miftahul Islam Beg','designation'=>'Headmaster/TIC','membership_no'=>'22','membership_date'=>Null,'pan_no'=>'0','account_no'=>'0977010216319','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'Inactive','remarks'=>''],
+           
             ['id'=> 11 ,'user_id'=> 0 ,'name'=>'Mashihar Rahaman','designation'=>'Asst. Teacer','membership_no'=>'32','membership_date'=>Null,'pan_no'=>'0','account_no'=>'0977010213448','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'active','remarks'=>''],
             ['id'=> 12 ,'user_id'=> 0 ,'name'=>'Abu Taher','designation'=>'Asst. Teacer','membership_no'=>'56','membership_date'=>Null,'pan_no'=>'0','account_no'=>'0977010216166','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'Inactive','remarks'=>''],
             ['id'=> 13 ,'user_id'=> 0 ,'name'=>'Narayan Barman','designation'=>'Asst. Teacer','membership_no'=>'33','membership_date'=>Null,'pan_no'=>'0','account_no'=>'0977010216449','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'active','remarks'=>''],
