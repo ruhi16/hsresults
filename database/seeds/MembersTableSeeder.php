@@ -12,7 +12,7 @@ class MembersTableSeeder extends Seeder
     public function run()
     {
         DB::table('members')->insert([  
-            ['id'=> 10 ,'user_id'=> 0 ,'name'=>'Md. Miftahul Islam Beg','designation'=>'Headmaster/TIC','membership_no'=>'22','membership_date'=>'','pan_no'=>'0','account_no'=>'0977010216319','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'Inactive','remarks'=>'']
+            ['id'=> 10 ,'user_id'=> 0 ,'name'=>'Md. Miftahul Islam Beg','designation'=>'Headmaster/TIC','membership_no'=>'22','membership_date'=>Null,'pan_no'=>'0','account_no'=>'0977010216319','society_id'=> 1 ,'is_loan_issued'=> 0 ,'status'=>'Inactive','remarks'=>'']
 
             
         ]);
