@@ -34,20 +34,7 @@ class LoanassignsTableSeeder extends Seeder
             ['id'=> 59 ,'member_id'=> 13 ,'loanspecification_id'=>Null,'loan_amount'=> 1000000 ,'loan_type'=> 'MT' ,'loan_roi'=> 11.25 ,'loan_sch'=> 0.5 ,'loan_term'=> 84 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 940000],
             ['id'=> 60 ,'member_id'=> 54 ,'loanspecification_id'=>Null,'loan_amount'=> 1000000 ,'loan_type'=> 'MT' ,'loan_roi'=> 11.25 ,'loan_sch'=> 0.5 ,'loan_term'=> 84 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 978000],
             ['id'=> 61 ,'member_id'=> 48 ,'loanspecification_id'=>Null,'loan_amount'=> 800000 ,'loan_type'=> 'MT' ,'loan_roi'=> 11.25 ,'loan_sch'=> 0.5 ,'loan_term'=> 84 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 630000],
-            ['id'=> 94 ,'member_id'=> 36 ,'loanspecification_id'=>Null,'loan_amount'=> 40000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 8000],
-            ['id'=> 107 ,'member_id'=> 53 ,'loanspecification_id'=>Null,'loan_amount'=> 32000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 15600],
-            ['id'=> 108 ,'member_id'=> 46 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 28500],
-            ['id'=> 111 ,'member_id'=> 16 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 15000],
-            ['id'=> 113 ,'member_id'=> 54 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 38000],
-            ['id'=> 115 ,'member_id'=> 28 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 38000],
-            ['id'=> 118 ,'member_id'=> 47 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 24500],
-            ['id'=> 119 ,'member_id'=> 39 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 19000],
-            ['id'=> 123 ,'member_id'=> 34 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 19500],
-            ['id'=> 124 ,'member_id'=> 31 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 30000],
-            ['id'=> 125 ,'member_id'=> 30 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 5000],
-            ['id'=> 126 ,'member_id'=> 29 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 47000],
-            ['id'=> 127 ,'member_id'=> 50 ,'loanspecification_id'=>Null,'loan_amount'=> 50000 ,'loan_type'=> 'ST' ,'loan_roi'=> 10.0 ,'loan_sch'=> 0.0 ,'loan_term'=> 24 ,'loan_date'=>Null,'coopbankloancollection_id'=> 0 ,'curr_bal'=> 48000],
-            
+  
 
         
             ]);
