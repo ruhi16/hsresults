@@ -16,10 +16,10 @@ class CreateMonthactionsTable extends Migration
         Schema::create('monthactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('particular');
-            $table->String('particular_short');
-            $table->String('particular_type');
-            $table->String('status');
-            $table->String('remarks');
+            $table->String('particular_short')->nullable();
+            $table->String('particular_type')->nullable();
+            $table->String('status')->nullable();
+            $table->String('remarks')->nullable();
             $table->timestamps();
         });
     }

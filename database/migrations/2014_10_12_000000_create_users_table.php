@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->integer('member_id')->nullable();
             $table->string('user_status')->nullable();
             $table->string('remarks')->nullable();
-            $table->rememberToken();
+            $table->rememberToken()->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@ class CreateLoanassignsTable extends Migration
             $table->decimal('loan_sch')->nullable();
             $table->integer('loan_term')->nullable();
             
-            $table->integer('loanreceivedfrbank_id')->nullable();
+            $table->integer('coopbankloancollection_id')->nullable();
 
             $table->decimal('curr_bal')->nullable();
 

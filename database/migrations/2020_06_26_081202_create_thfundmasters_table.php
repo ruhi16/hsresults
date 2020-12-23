@@ -16,15 +16,15 @@ class CreateThfundmastersTable extends Migration
         Schema::create('thfundmasters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('member_id');
-            $table->decimal('op_balance');
-            $table->date('op_balance_date');
+            $table->decimal('op_balance')->nullable();
+            $table->date('op_balance_date')->nullable();
 
-            $table->integer('total_month');
-            $table->decimal('total_collection');
-            $table->decimal('total_interest');           
+            $table->integer('total_month')->nullable();
+            $table->decimal('total_collection')->nullable();
+            $table->decimal('total_interest')->nullable();
             
-            $table->decimal('cl_balance');
-            $table->date('cl_balance_date');   
+            $table->decimal('cl_balance')->nullable();
+            $table->date('cl_balance_date')->nullable();   
             
             $table->string('status')->nullable;         
             $table->timestamps();

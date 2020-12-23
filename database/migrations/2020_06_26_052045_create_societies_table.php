@@ -16,13 +16,13 @@ class CreateSocietiesTable extends Migration
         Schema::create('societies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('name');
-            $table->String('address');
-            $table->String('registraion_no');
-            $table->String('registraion_date');
-            $table->String('established_date');
-            $table->String('pan_no');
-            $table->String('status');
-            $table->String('remarks');
+            $table->String('address')->nullable();
+            $table->String('registraion_no')->nullable();
+            $table->String('registraion_date')->nullable();
+            $table->String('established_date')->nullable();
+            $table->String('pan_no')->nullable();
+            $table->String('status')->nullable();
+            $table->String('remarks')->nullable();
             $table->timestamps();
         });
     }
