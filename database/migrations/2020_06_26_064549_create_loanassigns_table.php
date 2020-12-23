@@ -16,7 +16,7 @@ class CreateLoanassignsTable extends Migration
         Schema::create('loanassigns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('member_id');
-            $table->integer('loanspcification_id')->nullable();
+            $table->integer('loanspecification_id')->nullable();
             
             $table->String('loan_type')->nullable();
             
