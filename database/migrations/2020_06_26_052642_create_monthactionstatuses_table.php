@@ -15,10 +15,10 @@ class CreateMonthactionstatusesTable extends Migration
     {
         Schema::create('monthactionstatuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('monthaction_id');
-            $table->String('action_status');//due,done,finalize
-            $table->date('action_date');
-            $table->String('approval_status');
+            $table->integer('monthaction_id')->nullable();
+            $table->String('action_status')->nullable();//due,done,finalize
+            $table->date('action_date')->nullable();
+            $table->String('approval_status')->nullable();
             $table->timestamps();
         });
     }

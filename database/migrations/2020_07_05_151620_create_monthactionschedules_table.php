@@ -15,10 +15,10 @@ class CreateMonthactionschedulesTable extends Migration
     {
         Schema::create('monthactionschedules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('monthaction_id');
-            $table->string('monthaction_status');
-            $table->integer('for_month');
-            $table->integer('for_year');
+            $table->integer('monthaction_id')->nullable();
+            $table->string('monthaction_status')->nullable();
+            $table->integer('for_month')->nullable();
+            $table->integer('for_year')->nullable();
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();

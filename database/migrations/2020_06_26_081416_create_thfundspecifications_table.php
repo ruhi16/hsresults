@@ -16,12 +16,12 @@ class CreateThfundspecificationsTable extends Migration
         Schema::create('thfundspecifications', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->float('monthly_premium');
-            $table->integer('yearly_roi');         
+            $table->float('monthly_premium')->nullable();
+            $table->integer('yearly_roi')->nullable();         
 
-            $table->date('date_of_activation');
+            $table->date('date_of_activation')->nullable();
             
-            $table->string('status')->nullable;
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

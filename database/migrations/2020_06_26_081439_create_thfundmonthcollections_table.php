@@ -16,12 +16,12 @@ class CreateThfundmonthcollectionsTable extends Migration
         Schema::create('thfundmonthcollections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('member_id');
-            $table->integer('thfundmaster_id')->nullable;
-            $table->float('year_roi')->nullable;
-            $table->integer('month_premium')->nullable;
-            $table->integer('for_month')->nullable;
-            $table->integer('for_year')->nullable;
-            $table->string('status')->nullable;
+            $table->integer('thfundmaster_id')->nullable();
+            $table->float('year_roi')->nullable();
+            $table->integer('month_premium')->nullable();
+            $table->integer('for_month')->nullable();
+            $table->integer('for_year')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

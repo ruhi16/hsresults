@@ -16,8 +16,8 @@ class CreateFinyearsTable extends Migration
         Schema::create('finyears', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->date('startdate');
-            $table->date('enddate');
+            $table->date('startdate')->nullable();
+            $table->date('enddate')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
         });

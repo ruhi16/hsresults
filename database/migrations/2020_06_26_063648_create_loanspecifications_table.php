@@ -16,14 +16,14 @@ class CreateLoanspecificationsTable extends Migration
         Schema::create('loanspecifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('loan_type');
-            $table->float('yearly_rointerest');
-            $table->float('yearly_roservice');
-            $table->integer('term_inmonth');
-            $table->float('loan_limit');
-            $table->date('with_effect_from');
-            $table->date('entry_date');
-            $table->string('status')->nullable;
+            $table->string('loan_type')->nullable();
+            $table->float('yearly_rointerest')->nullable();
+            $table->float('yearly_roservice')->nullable();
+            $table->integer('term_inmonth')->nullable();
+            $table->float('loan_limit')->nullable();
+            $table->date('with_effect_from')->nullable();
+            $table->date('entry_date')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
