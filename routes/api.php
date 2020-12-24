@@ -27,6 +27,10 @@ Route::middleware('auth:api')->group(function(){
 
     Route::get('/user', function (Request $request) {    
         $user = auth()->user();
+
+
+        
+
       
         $member = $user->member;
         
