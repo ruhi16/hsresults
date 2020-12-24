@@ -26,7 +26,7 @@ class CreateThfundmastersTable extends Migration
             $table->float('cl_balance')->nullable();
             $table->date('cl_balance_date')->nullable();   
             
-            $table->string('status')->nullable;         
+            $table->string('status')->nullable();         
             $table->timestamps();
         });
     }
