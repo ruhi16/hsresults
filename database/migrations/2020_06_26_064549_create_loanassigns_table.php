@@ -20,16 +20,16 @@ class CreateLoanassignsTable extends Migration
             
             $table->String('loan_type')->nullable();
             
-            $table->double('loan_amount')->nullable();            
+            $table->float('loan_amount')->nullable();            
             $table->date('loan_date')->nullable();
 
-            $table->double('loan_roi')->nullable();
-            $table->double('loan_sch')->nullable();
+            $table->float('loan_roi')->nullable();
+            $table->float('loan_sch')->nullable();
             $table->integer('loan_term')->nullable();
             
             $table->integer('coopbankloancollection_id')->nullable();
 
-            $table->double('curr_bal')->nullable();
+            $table->float('curr_bal')->nullable();
 
             $table->integer('next_due_days')->nullable();
             $table->integer('next_due_month')->nullable();
