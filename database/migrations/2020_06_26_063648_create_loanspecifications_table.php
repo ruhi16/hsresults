@@ -17,10 +17,10 @@ class CreateLoanspecificationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('loan_type');
-            $table->decimal('yearly_rointerest');
-            $table->decimal('yearly_roservice');
+            $table->float('yearly_rointerest');
+            $table->float('yearly_roservice');
             $table->integer('term_inmonth');
-            $table->decimal('loan_limit');
+            $table->float('loan_limit');
             $table->date('with_effect_from');
             $table->date('entry_date');
             $table->string('status')->nullable;

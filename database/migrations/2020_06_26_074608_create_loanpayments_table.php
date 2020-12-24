@@ -19,20 +19,20 @@ class CreateLoanpaymentsTable extends Migration
             $table->integer('loanassign_id');
             $table->String('loan_type');
 
-            $table->decimal('previous_balance')->nullable();
-            $table->decimal('loan_roi')->nullable();
-            $table->decimal('loan_sch')->nullable();
+            $table->float('previous_balance')->nullable();
+            $table->float('loan_roi')->nullable();
+            $table->float('loan_sch')->nullable();
             
             $table->date('from_date')->nullable();
             $table->date('to_date')->nullable();
             $table->integer('no_of_days')->nullable();
             
-            $table->decimal('loan_int_amt')->nullable();
-            $table->decimal('loan_sch_amt')->nullable();
-            $table->decimal('premium_amt')->nullable();
-            $table->decimal('total_amt')->nullable();
+            $table->float('loan_int_amt')->nullable();
+            $table->float('loan_sch_amt')->nullable();
+            $table->float('premium_amt')->nullable();
+            $table->float('total_amt')->nullable();
 
-            $table->decimal('current_balance')->nullable();
+            $table->float('current_balance')->nullable();
 
             $table->String('status')->nullable();
             $table->String('remarks')->nullable();            

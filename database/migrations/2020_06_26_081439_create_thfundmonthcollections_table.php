@@ -17,7 +17,7 @@ class CreateThfundmonthcollectionsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('member_id');
             $table->integer('thfundmaster_id')->nullable;
-            $table->decimal('year_roi')->nullable;
+            $table->float('year_roi')->nullable;
             $table->integer('month_premium')->nullable;
             $table->integer('for_month')->nullable;
             $table->integer('for_year')->nullable;
