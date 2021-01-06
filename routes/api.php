@@ -23,9 +23,15 @@ Route::post('/refresh','Api\Auth\LoginController@refresh');
 
 
 
+
+Route::get('/members', 'Api\Auth\MemberController@index');
+
+
+
+
 Route::middleware('auth:api')->group(function(){
 
-    Route::get('/members', 'Api\Auth\MemberController@index');
+    
 
 
     Route::get('/user', function (Request $request) {    
