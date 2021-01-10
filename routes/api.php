@@ -27,6 +27,9 @@ Route::post('/refresh','Api\Auth\LoginController@refresh');
 // Route::get('/members', 'Api\Auth\MemberController@index');
 // Route::get('/members/{id}', 'Api\Auth\MemberController@show');
 
+
+
+
 Route::resource('members', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 // Route::resource('photo', 'PhotoController', ['except' => ['create', 'store', 'update', 'destroy']]);
 
