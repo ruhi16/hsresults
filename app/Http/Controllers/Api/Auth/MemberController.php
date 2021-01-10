@@ -31,7 +31,11 @@ class MemberController extends Controller{
 
   
     public function show($id){
-        //
+        $member = Member::find($id);
+
+        return response()->json([
+            'member' => $member
+        ]);
     }
 
     /**
