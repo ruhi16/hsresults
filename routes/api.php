@@ -36,7 +36,7 @@ Route::resource('members', 'Api\Auth\MemberController', ['only' => ['index', 'sh
 
 Route::middleware('auth:api')->group(function(){
 
-    
+    Route::resource('member', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 
 
     Route::get('/user', function (Request $request) {    

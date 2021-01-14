@@ -24,6 +24,7 @@ class CreateMembersTable extends Migration
             $table->string('account_no')->nullable();
             $table->integer('society_id')->nullable();
             $table->boolean('is_loan_issued')->nullable();
+            $table->string('image_url')->nullable();
             $table->string('status')->nullable();
             $table->string('remarks')->nullable();
             $table->timestamps();
