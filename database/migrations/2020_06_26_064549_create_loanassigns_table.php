@@ -36,7 +36,7 @@ class CreateLoanassignsTable extends Migration
             $table->integer('next_due_year')->nullable();
 
 
-
+            $table->date('loanassign_date')->nullable();
             $table->String('status')->nullable();
             $table->String('remarks')->nullable();
             $table->timestamps();

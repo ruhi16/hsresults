@@ -10,6 +10,7 @@ use App\Loanassign;
 class Loanpayment extends Model
 {
     protected $guard = [];
+    protected $fillable = ['member_id','loanassign_id','loan_type','previous_balance','from_date','loan_roi','loan_sch','to_date','no_of_days','loan_int_amt','loan_sch_amt'];
 
     
     public function member(){

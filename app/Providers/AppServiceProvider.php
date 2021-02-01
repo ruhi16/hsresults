@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // default time-zone
+        date_default_timezone_set('Asia/Calcutta');
     }
 }

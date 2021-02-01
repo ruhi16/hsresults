@@ -34,12 +34,23 @@ Route::resource('members', 'Api\Auth\MemberController', ['only' => ['index', 'sh
 // Route::resource('photo', 'PhotoController', ['except' => ['create', 'store', 'update', 'destroy']]);
 
 
+
+Route::post('members/{id}/loanpayments', 'Api\LoanpaymentController@monthPayments');
+Route::put ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthUpdate');
+Route::delete ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthDelete');
+
+
+Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');    
+
+
 Route::middleware('auth:api')->group(function(){
 
+    //Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
+    
     Route::resource('member', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 
 
-    Route::get('/user', function (Request $request) {    
+    Route::get('/user', function (Request $request){
         $user = auth()->user();
 
 

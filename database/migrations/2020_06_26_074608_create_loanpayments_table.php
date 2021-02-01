@@ -33,7 +33,7 @@ class CreateLoanpaymentsTable extends Migration
             $table->float('total_amt')->nullable();
 
             $table->float('current_balance')->nullable();
-
+            $table->date('loanpayment_date')->nullable();
             $table->String('status')->nullable();
             $table->String('remarks')->nullable();            
             $table->timestamps();

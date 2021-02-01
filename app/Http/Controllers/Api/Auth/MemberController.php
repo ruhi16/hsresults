@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Http\Resources\LoanpaymentResource;
 
 use App\Member;
 use App\Loanassign;
+use App\Loanpayment;
 
 class MemberController extends Controller{
         

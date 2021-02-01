@@ -1,4 +1,4 @@
-@ACCESS_TOKEN=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiMjgzYmM5ODIxYzE3YzBlMjFlZWZkNGE2ZmU4ZTMzMDFlYzI1ZTY1OTRiYWJhZjYyNjU3NGU2MGNlOTVmM2E5YjViZDg0NTQyNjgwOGUwNTUiLCJpYXQiOjE2MDk3ODUzNzEsIm5iZiI6MTYwOTc4NTM3MSwiZXhwIjoxNjQxMzIxMzcxLCJzdWIiOiIxMSIsInNjb3BlcyI6W119.Cjud4RKqW2XGNNwNxRaXo9SkEHOO1DRjJxB_m6CPksAmfxEgiESmHKjEO3RgN6uIWLn_Bhlzld1AgjGCYIl1WgrHT2WBV52RpSX4hdu4Jeid92TxFKGCmMkrWyF465HgRLoUSaAdzWFVdgEqckIcuxKnztCVOwa1Jq12lwYj1BngCH3H_6AxNXosALoNA7UQ1Dw2Hu5TgyT_YVUl2SW9pDK9xNZqBT-RUEaCwdiBOgrXCDXAusrzkM9m-Qxw1wAdOq_3hGB1cI2b9z5TwClj_cmDtDIx3uDVzLtgNMDf6mayhmnvfxBuyJl6HTQVHa-8ixi03q39Ej2gHQXpKNBPQfKEjJiGcq5CdnKQgbWjMfBRWjFIanY6GYmagH6H2834FYbUN_uK9uK0pPWrysOVF5TC9eGAagsA1-ktciusrsLAZI2zXGONTIMLgMk7s5pdEnVt2CPZc7cMMyTGg93S6oxx85kHvcxVUfBeYyIp3dUujZdqa0iGRGpVf1dnS2eXt3bzzjSmCDEFqtlypof00-GTSUOi2OsT0Gjhv_8EFFBalpR7ETC981t3swWrbimdOamjnF3Y2cybY7ShxZa898VDIQYWJW5kGF7Mp0IV23y2G3N9soby8O6ScPy1q1I-KkJGr9hfWhSiwFplEF7H3tb1IicZKJfmBma0UZYgsZc
+@ACCESS_TOKEN=Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNDNjMjFjZTM5MDQ2MDVlNTk4YWE3MGEzNjVkNDJlNjI1ODBhMTlhNDUwOTQ4Zjg0MTA0OWY2MzVmZmQ4OTIzYWJmNGFlNTRmNGZjMDhhOWYiLCJpYXQiOjE2MTE2ODI4ODcsIm5iZiI6MTYxMTY4Mjg4NywiZXhwIjoxNjQzMjE4ODg2LCJzdWIiOiIxMSIsInNjb3BlcyI6W119.tNtah97DEyjMAKxaClkhy1SMjXFwDsCuSr408RyLOCVVxSTEh8b9tMlHSMpz7HDCVHPZ9RVEQQC35r5HidoSu4Vrp-eU81RZojIWXFHvlWqcNqECSvy2cRZkhdeId3__AvOAkhgoeWdTUG7vCzuO6LBhRPsOKUvXDoYYzvK0favQ_DwxneiBCrNG6BtZDCmPHkLNe0ROQ7CFjRa9t02BARdVZLHuAOsx4adNVuqAQINGaFwHB25CYkSUlofCSPdejIGdQGQJ-EugD85_hz_YFu6MY6M_IwMbP1aBUIVkJ2-qBKmDC-shda0PfimsMOwug07wfRbEwnKD0iqSyCJdlFSxCxjaPs0a7tTbHrcpigLZ7Pbq2Bfm6aX9qnF78heydlpyp59G1CFyto0bxKIFNuOYd_iWd5YoTTfS-sCT-wbYgR7vv1uwHytqPDyLD4mKq19_Gorh2FO2TPVp6u0odwDYXrGDdFkRyoFmvOn1ODVhB42rgadfHd49tv5dULH4_Euu0aC75mo6bkyU4Sm4ChU2l9Nyl_NJAjbGNuVPtQOiuWPDd7zYotqxIfg9oiodS2OfB9RtUbfdJnGDa89dA0PQ5GI9bFpMrlJknV_iY_UhlhOXwdHMzcUEZtRC0sJC_ES8UC7cD4lOIBI0AcWkS4D8Z1HcacFT4vjSEwAnt3U
 @REFRESH_TOKEN="refresh token"
 
 
@@ -87,13 +87,37 @@ authorization: {{ACCESS_TOKEN}}
 
 
 
-### All Members
+### Individual Members
 GET http://localhost:8000/api/members/16
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 
 
+### Individual Members Premium Initialization
+GET http://localhost:8000/api/members/16/loanpayments
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
 
+
+### Individual Members Premium Payment
+POST http://localhost:8000/api/members/16/loanpayments
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+{
+    "member_id":16,    
+    "loanassign_id":52, 
+    "loanpayment_id": 195,
+    "premium_amt":6000,
+    "loanpayment_date":"2021-01-25",
+    "remarks":"No remarks",
+}
+
+
+### Individual Members Premium Initialization
+PUT http://localhost:8000/api/members/16/loanpayments
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
 
 
 
