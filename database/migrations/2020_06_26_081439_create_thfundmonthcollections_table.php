@@ -21,7 +21,9 @@ class CreateThfundmonthcollectionsTable extends Migration
             $table->integer('month_premium')->nullable();
             $table->integer('for_month')->nullable();
             $table->integer('for_year')->nullable();
+            $table->string('thfund_collection_date')->nullable();
             $table->string('status')->nullable();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
