@@ -45,8 +45,9 @@ class LoanpaymentController extends Controller{
                     } else {
                         // echo "<t>Highest ID Loanpayment Date is Not Null, ", $last_loanpayment->loanpayment_date,"<br/>";
                         
-                        $curr_date = Carbon::createFromFormat('Y-m-d', '2020-12-29');                    
-                        // echo "Curr Date:",$curr_date, "<br/>";                    
+                        // $curr_date = Carbon::createFromFormat('Y-m-d', '2020-12-29');
+                        $curr_date = Carbon::now()->toDateString();
+                        echo "Curr Date:",$curr_date, "<br/>";                    
 
                         if($curr_date > $last_loanpayment->loanpayment_date){
                             // echo "New Entry:<br/>";
@@ -192,6 +193,17 @@ class LoanpaymentController extends Controller{
 
     //DELETE
     public function monthDelete($id){
+         //to get updated records
+        //$member = Auth::user()->member;
+        $member = Member::find($id);
+        $loanassigns = $member->loanassigns;
+        foreach($loanassigns as $loanassign){            
+            $loanpayments = $loanassign->loanpayments;
+            $loanpayment = $loanpayments->where('status', 'pending')->get();
+            echo $loanpayment, "<br>";
+
+        }
+
 
     }
 

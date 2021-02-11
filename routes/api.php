@@ -45,44 +45,27 @@ Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitial
 
 Route::middleware('auth:api')->group(function(){
 
-    //Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
+    //Route::get ('member/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
     
     Route::resource('member', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 
 
     Route::get('/user', function (Request $request){
-        $user = auth()->user();
-
-
-        
-
-      
-        $member = $user->member;
-        
+        $user = auth()->user();      
+        $member = $user->member;        
         $loanassigns = Loanassign::where('member_id', $member->id)->get();
-
-
-
         $payments = [];
-
         foreach($loanassigns as $loanassign){
             $payments = $loanassign->loanpayments;
-            
-            
-
         }
-
         
         $thfundstatus = $member->thfundmasters;
         $thfundcollection = $member->thfundmonthcollections;
-
 
         return response()->json([
             'user' => $member,
             'loanassign'    => $loanassigns,
         ]);
-
-
 
         // return response([
         //     'user'  =>  $user->member, 
@@ -92,7 +75,4 @@ Route::middleware('auth:api')->group(function(){
     });
 
     Route::post('logout', 'Api\Auth\LoginController@logout');
-    
-
-
 });
