@@ -22,7 +22,7 @@ class Loanassign extends Model
     }
 
     public function loanpayments(){
-        return $this->hasMany('App\Loanpayment');
+        return $this->hasMany('App\Loanpayment')->orderBy('id','desc');
     }
 
     public function loanspecification(){

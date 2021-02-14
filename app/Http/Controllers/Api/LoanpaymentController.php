@@ -47,7 +47,7 @@ class LoanpaymentController extends Controller{
                         
                         // $curr_date = Carbon::createFromFormat('Y-m-d', '2020-12-29');
                         $curr_date = Carbon::now()->toDateString();
-                        echo "Curr Date:",$curr_date, "<br/>";                    
+                        //echo "Curr Date:",$curr_date, "<br/>";                    
 
                         if($curr_date > $last_loanpayment->loanpayment_date){
                             // echo "New Entry:<br/>";
@@ -112,8 +112,11 @@ class LoanpaymentController extends Controller{
         //$member = Auth::user()->member;
         $member = Member::find($id);
         $loanassigns = $member->loanassigns;
+        $loanpayments =[];
         foreach($loanassigns as $loanassign){            
             $loanassign->loanpayments;
+            //$loanpayments = $loanpayments->sortByDesc('id');
+
         }
 
 
@@ -121,7 +124,8 @@ class LoanpaymentController extends Controller{
 
         // return "Members Loan Payment Month Initialisation: $member";
         return response()->json([
-            'member'        => $member,
+            'member'    => $member,
+            //'loayments'         =>$loanpayments
             // 'loanpayment'    => $lpresource,
             
         ]);
@@ -161,8 +165,6 @@ class LoanpaymentController extends Controller{
             foreach($loanassigns as $loanassign){            
                 $loanassign->loanpayments;
             }
-            
-
 
 
 
@@ -172,6 +174,7 @@ class LoanpaymentController extends Controller{
                 'message'   => 'Successfully Completed',
                 'member' => $member,
 
+                
             ]);
         } else {
             return response()->json([
@@ -179,31 +182,39 @@ class LoanpaymentController extends Controller{
 
             ]);
         }
-        
-
-        
     }
 
 
     //PUT
-    public function monthUpdate($id){
+    public function monthUpdate(Request $request, $id){
+        $str = $id;//$request->member_id;
+        //return "put reqeust: " + $str;
+        return response()->json([
+            'message'=> $str
 
+        ]);
     }
 
 
     //DELETE
-    public function monthDelete($id){
+    public function monthDelete(Request $request, $id){
+        //return ('delete'); 
          //to get updated records
         //$member = Auth::user()->member;
         $member = Member::find($id);
         $loanassigns = $member->loanassigns;
         foreach($loanassigns as $loanassign){            
             $loanpayments = $loanassign->loanpayments;
-            $loanpayment = $loanpayments->where('status', 'pending')->get();
-            echo $loanpayment, "<br>";
-
+            $loanpayment = $loanpayments->sortByDesc('id')->first();
+            //$loanpayment = $loanpayments->max('id');
+            //echo $loanpayment, "<br>";
         }
 
+        
+        return response()->json([
+            'loanpayments' => $loanpayment,
+            'member_id'=> $request->loanpayment_id,
+        ]);
 
     }
 

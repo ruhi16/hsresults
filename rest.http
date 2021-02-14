@@ -119,6 +119,38 @@ PUT http://localhost:8000/api/members/16/loanpayments
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 
+{
+    "member_id":16,  
+}
+
+
+### Individual Members Premium Initialization
+DELETE http://localhost:8000/api/members/16/loanpayments
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+{
+    "member_id":16,    
+    "loanassign_id":52, 
+    "loanpayment_id": 195,
+    "premium_amt":6000,
+    "loanpayment_date":"2021-01-25",
+    "remarks":"No remarks",
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
