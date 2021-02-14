@@ -202,20 +202,22 @@ class LoanpaymentController extends Controller{
          //to get updated records
         //$member = Auth::user()->member;
         $member = Member::find($id);
-        $loanassigns = $member->loanassigns;
-        foreach($loanassigns as $loanassign){            
-            $loanpayments = $loanassign->loanpayments;
-            //$loanpayment = $loanpayments->sortByDesc('id')->first();
-            //$loanpayment = $loanpayments->max('id');
-            //echo $loanpayment, "<br>";
-        }
+        // $loanassigns = $member->loanassigns;
+        // foreach($loanassigns as $loanassign){            
+        //     $loanpayments = $loanassign->loanpayments;
+        //     //$loanpayment = $loanpayments->sortByDesc('id')->first();
+        //     //$loanpayment = $loanpayments->max('id');
+        //     //echo $loanpayment, "<br>";
+        // }
 
         $loanpayment = Loanpayment::find($request->loanpayment_id);
 
         
         return response()->json([
-            'loanpayments' => $loanpayment,
-            'member_id'=> $request->loanpayment_id,
+            'member' => $member,
+            'loanpayment' => $loanpayment,
+            'member_id' => $request->member_id,
+            'loanpayment_id'=> $request->loanpayment_id,
         ]);
 
     }
