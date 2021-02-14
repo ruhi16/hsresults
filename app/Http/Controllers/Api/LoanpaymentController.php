@@ -205,10 +205,12 @@ class LoanpaymentController extends Controller{
         $loanassigns = $member->loanassigns;
         foreach($loanassigns as $loanassign){            
             $loanpayments = $loanassign->loanpayments;
-            $loanpayment = $loanpayments->sortByDesc('id')->first();
+            //$loanpayment = $loanpayments->sortByDesc('id')->first();
             //$loanpayment = $loanpayments->max('id');
             //echo $loanpayment, "<br>";
         }
+
+        $loanpayment = Loanpayment::find($request->loanpayment_id);
 
         
         return response()->json([
