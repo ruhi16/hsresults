@@ -211,6 +211,7 @@ class LoanpaymentController extends Controller{
         // }
 
         $loanpayment = Loanpayment::find($request->loanpayment_id);
+        $loanpayment->delete();
 
         
         return response()->json([
