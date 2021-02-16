@@ -145,9 +145,9 @@ class LoanpaymentController extends Controller{
         // echo "Check: ", $check;
 
         if($check != Null){
-            $loanpayment->premium_amt = $request->premium_amt;
-            $loanpayment->total_amt = $request->premium_amt + $loanpayment->loan_int_amt + $loanpayment->loan_sch_amt;
-            $loanpayment->current_balance = $loanpayment->previous_balance - $request->premium_amt;
+            $loanpayment->premium_amt = (float) $request->premium_amt;
+            $loanpayment->total_amt = (float) $request->premium_amt + (float) $loanpayment->loan_int_amt + (float) $loanpayment->loan_sch_amt;
+            $loanpayment->current_balance = (float) $loanpayment->previous_balance - (float) $request->premium_amt;
             $loanpayment->loanpayment_date = $request->loanpayment_date;
             $loanpayment->status = "done";
             $loanpayment->remarks = $request->remarks;
