@@ -58,16 +58,17 @@ class LoanpaymentController extends Controller{
                     'member_id'         => $member->id,
                     'loanassign_id'     => $loanassign->id,
                     'loan_type'         => $loanassign->loan_type,
-                    'previous_balance'  => $loanassign->curr_bal,
+                    // 'previous_balance'  => $loanassign->curr_bal,
                     'loan_roi'          => $loanassign->loan_roi,
                     'loan_sch'          => $loanassign->loan_sch,
                     'from_date'         => $from_date->toDateTimeString(),
                     'to_date'           => $to_date->toDateTimeString(),
                     // 'no_of_days'        => $diff_in_days,
-                //     'loan_int_amt'      => $loan_int,
-                //     'loan_sch_amt'      => $loan_sch,
+                    // 'loan_int_amt'      => $loan_int,
+                    // 'loan_sch_amt'      => $loan_sch,
                 ]);
 
+                $loanpayment->previous_balance = $loanassign->curr_bal;
                 $loanpayment->no_of_days = $diff_in_days;
                 $loanpayment->loan_int_amt = $loan_int;
                 $loanpayment->loan_sch_amt = $loan_sch;
@@ -78,8 +79,7 @@ class LoanpaymentController extends Controller{
         }// end of for
 
         //$lpresource = new LoanpaymentResource($loanpayment);
-        // echo $lpresource->toJson(JSON_PRETTY_PRINT);
-                
+        // echo $lpresource->toJson(JSON_PRETTY_PRINT);        
         //to get updated records
         //$member = Auth::user()->member;
         $member = Member::find($id);
