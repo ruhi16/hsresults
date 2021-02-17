@@ -149,7 +149,9 @@ class LoanpaymentController extends Controller{
         $member = Member::find($id);
         $loanassigns = $member->loanassigns;
         
+        //echo "Req Loanpayment Id: ", $request->loanpayment_id, "<br/>";
         $loanpayment = Loanpayment::find($request->loanpayment_id);
+        //echo "Lp Loanpayment Id: ", $loanpayment->id, "<br/>";
 
 
         
