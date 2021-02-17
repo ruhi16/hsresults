@@ -68,11 +68,13 @@ class LoanpaymentController extends Controller{
                     // 'loan_sch_amt'      => $loan_sch,
                 ]);
 
-                $loanpayment->previous_balance = $loanassign->curr_bal;
-                $loanpayment->no_of_days = $diff_in_days;
-                $loanpayment->loan_int_amt = $loan_int;
-                $loanpayment->loan_sch_amt = $loan_sch;
-                $loanpayment->status = "pending";
+                if($loanpayment->status == Null || $loanpayment->loanpayment_date == Null) {
+                    $loanpayment->previous_balance = $loanassign->curr_bal;
+                    $loanpayment->no_of_days = $diff_in_days;
+                    $loanpayment->loan_int_amt = $loan_int;
+                    $loanpayment->loan_sch_amt = $loan_sch;
+                    $loanpayment->status = "pending";
+                }
                 
                 $loanpayment->Save();
             }// end of if($loanassign->curr_bal > 0)
