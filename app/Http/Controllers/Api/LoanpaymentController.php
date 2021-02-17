@@ -25,41 +25,48 @@ class LoanpaymentController extends Controller{
         
         //$last_loanpayment = [];
         foreach($loanassigns as $loanassign){
+            // echo "Loanassign:", $loanassign->loan_type, ": ", $loanassign->id, ", curr bal: ", $loanassign->curr_bal, "<br>";
+            
+            // add one more condition for add new record
             if($loanassign->curr_bal > 0){
+                // echo "loanassign->curr_bal > 0", "<br>";
                 // echo "=========== start of for =========================<br/>";
                 $loanassign->loanpayments;
                 $last_loanpayment = $loanassign->loanpayments()->orderByDesc('id')->first();
 
                 // echo "The existing record:";
                 // echo $last_loanpayment, "<br/>";
-
+                
+                // not the starting loanpayement
                 if($last_loanpayment != Null){
-                    // echo "Last Loanpayment is not Null", "<br/>";                
+                    // echo "Last Loanpayment is not Null, LP cont: ", $last_loanpayment->id, "<br/>";                
 
                     if($last_loanpayment->loanpayment_date == Null){
-                        // echo "<t>Highest ID Loanpayment Date is Null,<br/>";
-                        // echo "Retrive Entry:<br/>";
+                        // echo "Highest ID Loanpayment Date is Null, ", "<br/>";
+                        // echo "Retrive Entry: before compair with curr_date <br/>";
                         $from_date = Carbon::parse($last_loanpayment->from_date);
                         $to_date = Carbon::parse($last_loanpayment->to_date);
 
                     } else {
-                        // echo "<t>Highest ID Loanpayment Date is Not Null, ", $last_loanpayment->loanpayment_date,"<br/>";
+                        // echo "Highest ID Loanpayment Date is Not Null, ", $last_loanpayment->loanpayment_date,"<br/>";
                         
-                        // $curr_date = Carbon::createFromFormat('Y-m-d', '2020-12-29');
-                        $curr_date = Carbon::now()->toDateString();
-                        //echo "Curr Date:",$curr_date, "<br/>";                    
+                        $curr_date = Carbon::createFromFormat('Y-m-d', '2021-03-25');
+                        //$curr_date = Carbon::now()->toDateString();
+                        // echo "Curr Date:",$curr_date, "<br/>";                    
 
-                        if($curr_date > $last_loanpayment->loanpayment_date){
-                            // echo "New Entry:<br/>";
+                        // add one more condition for add new record
+                        if($curr_date > $last_loanpayment->to_date){
+                            // echo "New Entry: after compair with curr_date, curr_date = $curr_date > to_date = $last_loanpayment->to_date <br/>";
                             $from_date = Carbon::parse($last_loanpayment->to_date)->addDays(1);//->format('Y-m-d')
                             $to_date = $from_date->copy()->endOfMonth();
                         }else{
-                            // echo "Retrive Entry:<br/>";
+                            // echo "Retrive Entry: after compair with curr_date, curr_date = $curr_date <= to_date = $last_loanpayment->to_date <br/>";
                             $from_date = Carbon::parse($last_loanpayment->from_date);
                             $to_date = Carbon::parse($last_loanpayment->to_date);
                         }
                     }                
                 } else {
+                    // echo "Last Loanpayment is not Null, LP initialization completed", "<br/>";   
                     //1st loan payment
                     // echo "New First Entry:<br/>";
                     $from_date = Carbon::parse($loanassign->loanassign_date);
@@ -102,6 +109,7 @@ class LoanpaymentController extends Controller{
                 // echo "=========== end of for =========================<br/>";
             
             }// end of if($loanassign->curr_bal > 0)
+            // echo "<br>";
         }// end of for
 
         //$lpresource = new LoanpaymentResource($loanpayment);
@@ -130,6 +138,10 @@ class LoanpaymentController extends Controller{
             
         ]);
     }
+
+
+
+
 
     //POST
     public function monthPayments(Request $request, $id){        
@@ -171,14 +183,14 @@ class LoanpaymentController extends Controller{
 
             // return "post-loanpayment of $id is: $email";
             return response()->json([
-                'message'   => 'Successfully Completed',
-                'member' => $member,
+                // 'message'   => 'Successfully Completed',
+                // 'member' => $member,
 
                 
             ]);
         } else {
             return response()->json([
-                'message'=>"Not Found!"
+                // 'message'=>"Not Found!"
 
             ]);
         }
