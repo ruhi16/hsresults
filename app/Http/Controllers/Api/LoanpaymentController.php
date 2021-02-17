@@ -183,15 +183,12 @@ class LoanpaymentController extends Controller{
 
             // return "post-loanpayment of $id is: $email";
             return response()->json([
-                // 'message'   => 'Successfully Completed',
-                // 'member' => $member,
-
-                
+                'message'   => 'Successfully Completed',
+                'member' => $member,
             ]);
         } else {
             return response()->json([
-                // 'message'=>"Not Found!"
-
+                'message'=>"Not Found!"
             ]);
         }
     }
