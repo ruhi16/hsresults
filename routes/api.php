@@ -45,6 +45,15 @@ Route::delete ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthDele
 Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');    
 
 
+Route::get('/allusers', function (Request $request){
+    $users = User::all();
+
+    return response()->json([
+        'users' => $users,
+    ]);
+});
+
+
 Route::middleware('auth:api')->group(function(){
 
     //Route::get ('member/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');

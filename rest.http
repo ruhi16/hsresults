@@ -25,6 +25,10 @@ content-type: application/json,
 
 
 
+### All Users without auth ###
+GET http://localhost:8000/api/allusers
+content-type: application/json,
+
 
 
 
