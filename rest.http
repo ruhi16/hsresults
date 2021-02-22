@@ -41,11 +41,10 @@ POST  http://localhost:8000/api/register
 content-type: application/json
 
 {
-    "firstname":"Hari Narayan",
-    "lastname":"Das",
+    "name":"Hari Narayan Das",    
     "email":"hndas2020@gmail.com",
-    "password":"abcd"
-
+    "password":"password",
+    "password_confirmation":"password"
 }
 
 

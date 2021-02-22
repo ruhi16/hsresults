@@ -53,7 +53,10 @@ class RegisterController extends Controller
         //send email for otp
         $user = User::where('email', request('email'))->first();  
         if($user != null){
-            //Mail::to(request('email'))->send(new WelcomeMail($user));
+            $user->email_verified_link = $this->getRandomString(20);
+            $user->email_otp = $this->getRandomDigits(6);
+            $user->save();
+            Mail::to(request('email'))->send(new WelcomeMail($user));
         }
         
         return Route::dispatch($proxy);
@@ -88,7 +91,73 @@ class RegisterController extends Controller
     }
 
 
+    public function verify_email(Request $request, $email_link){
+        $user = User::where('email_verified_link', $email_link)->first();
+        
 
+        if( $user ){
+            $user->email_verified_link = null;
+            $user->email_is_verified = true;
+            $user->save();
+
+            return response()->json([
+                'message'  => 'Email Verified Successfully!!! Thank you.'                
+            ]);
+        }else {
+            return response()->json([
+                'message'  => 'Already Your Email Is Verified Successfully!!! Thank you.'                
+            ]);
+        }
+    }
+
+
+    public function verify_email_otp(Request $request, $email_otp){
+        $user = User::where('email_otp', $email_otp)->first();
+        
+
+        if( $user ){
+            $user->email_otp = null;
+            $user->email_otp_is_verified = true;
+            $user->save();
+
+            return response()->json([
+                'message'  => 'Email OTP Verified Successfully!!! Thank you.'                
+            ],200);
+        }else {
+            return response()->json([
+                'message'  => 'Already Your Email OTP Is Verified Successfully!!! Thank you.'                
+            ],200);
+        }
+    }
+
+
+
+
+
+
+    private function getRandomString($n) { 
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+        $randomString = ''; 
+      
+        for ($i = 0; $i < $n; $i++) { 
+            $index = rand(0, strlen($characters) - 1); 
+            $randomString .= $characters[$index]; 
+        } 
+      
+        return $randomString; 
+    } 
+
+    public function getRandomDigits($n) { 
+        $characters = '0123456789'; 
+        $randomString = ''; 
+      
+        for ($i = 0; $i < $n; $i++) { 
+            $index = rand(0, strlen($characters) - 1); 
+            $randomString .= $characters[$index]; 
+        } 
+      
+        return $randomString; 
+    } 
 
 
 

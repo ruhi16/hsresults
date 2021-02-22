@@ -21,6 +21,8 @@ Route::post('/register','Api\Auth\RegisterController@register');
 Route::post('/login','Api\Auth\LoginController@login');
 Route::post('/refresh','Api\Auth\LoginController@refresh');
 
+Route::get('/verify_email/{email_link}', 'Api\Auth\RegisterController@verify_email');
+Route::get('/verify_email_otp/{email_otp}', 'Api\Auth\RegisterController@verify_email_otp');
 
 
 
