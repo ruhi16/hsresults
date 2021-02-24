@@ -138,7 +138,7 @@ class RegisterController extends Controller
         $member = Member::where('security_pin',$security_pin)->first();
         
         if($member){
-            $member->user_id = Auth::user()->id;
+            $member->user_id = Integer.parseInt(Auth::user()->id);
             $member->save();
             return response()->json(['message' => 'User Link with Membership Info Successfully. '], 200);
         }else{
