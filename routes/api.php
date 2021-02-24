@@ -26,6 +26,7 @@ Route::get('/verify_email_otp/{email_otp}', 'Api\Auth\RegisterController@verify_
 
 
 
+
 // Route::get('/members', 'Api\Auth\MemberController@index');
 // Route::get('/members/{id}', 'Api\Auth\MemberController@show');
 
@@ -57,6 +58,7 @@ Route::get('/allusers', function (Request $request){
 Route::middleware('auth:api')->group(function(){
 
     //Route::get ('member/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
+    Route::get('link_membership/{security_pin}', 'Api\Auth\RegisterController@link_membership');
     
     Route::resource('member', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 

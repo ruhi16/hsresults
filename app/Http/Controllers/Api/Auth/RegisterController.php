@@ -16,6 +16,7 @@ use App\Mail\WelcomeMail;
 use Carbon\Carbon;
 
 use App\User;
+use App\Member;
 
 class RegisterController extends Controller
 {
@@ -132,6 +133,24 @@ class RegisterController extends Controller
 
 
 
+    
+    public function link_membership(Request $request, $security_pin){
+        $member = Member::where('security_pin',$security_pin)->first();
+        
+        if($member){
+            $member->user_id = Auth::user()->id;
+            $member->save();
+            return response()->json(['message' => 'User Link with Membership Info Successfully. '], 200);
+        }else{
+            return response()->json(['message' => 'Membership Info Not Found! '], 200);
+        }
+
+
+    }
+
+
+
+
 
 
 
@@ -158,7 +177,6 @@ class RegisterController extends Controller
       
         return $randomString; 
     } 
-
 
 
 
