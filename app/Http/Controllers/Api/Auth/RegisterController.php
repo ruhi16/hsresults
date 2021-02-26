@@ -142,10 +142,14 @@ class RegisterController extends Controller
             $member->save();
             return response()->json([
                 'member'=>$member,
-                'message' => 'User Link with Membership Info Successfully. '
+                'message' => 'User Link with Membership Info Successfully. ',
+                'success'   => true
             ], 200);
         }else{
-            return response()->json(['message' => 'Membership Info Not Found! '], 200);
+            return response()->json([
+                'message' => 'Membership Info Not Found! ',
+                'success'   => false
+        ], 200);
         }
 
 
