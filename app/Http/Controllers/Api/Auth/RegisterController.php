@@ -122,10 +122,12 @@ class RegisterController extends Controller
             $user->save();
 
             return response()->json([
+                'success'   => true,
                 'message'  => 'Email OTP Verified Successfully!!! Thank you.'                
             ],200);
         }else {
             return response()->json([
+                'success'   => false,
                 'message'  => 'Already Your Email OTP Is Verified Successfully!!! Thank you.'                
             ],200);
         }

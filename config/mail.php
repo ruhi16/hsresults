@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 465),
+    'port' => env('MAIL_PORT', 2525),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME', '405ae806921398'),
+    'username' => env('MAIL_USERNAME', '493833c29fc569'),
 
-    'password' => env('MAIL_PASSWORD', 'eb44a277dc053f'),
+    'password' => env('MAIL_PASSWORD', '9df19a2f7aefba'),
 
     /*
     |--------------------------------------------------------------------------
