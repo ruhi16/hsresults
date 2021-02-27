@@ -52,11 +52,12 @@ class MemberController extends Controller{
 
         $payments = [];
 
-        foreach($loanassigns as $loanassign){
-            $payments = $loanassign->loanpayments;
+        if($loanassigns != Null){
+            foreach($loanassigns as $loanassign){
+                $payments = $loanassign->loanpayments;
 
+            }
         }
-        
         $thfundstatus = $member->thfundmasters;
         $thfundcollection = $member->thfundmonthcollections;
 
