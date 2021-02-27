@@ -5,7 +5,17 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+
 use App\Http\Resources\LoanpaymentResource;
+
+use Carbon\Carbon;
 
 use App\Member;
 use App\Loanassign;
@@ -34,7 +44,8 @@ class MemberController extends Controller{
 
   
     public function show($id){
-        $member = Member::find($id);
+        //$member = Member::find($id);
+        $member = Auth::user();
 
         $loanassigns = $member->loanassigns; //Loanassign::where('member_id', $id)->get();
         
