@@ -46,8 +46,14 @@ class MemberController extends Controller{
     public function show($id){
         //$member = Member::find($id);
         //$member = Auth::user()->member();
-        $user = auth()->user();      
-        $member = $user->member;   
+
+        if($id == 0){
+            $user = auth()->user();
+            $member = $user->member;
+        }else{
+            $member = Member::find($id);
+        }
+        
 
         $loanassigns = $member->loanassigns; //Loanassign::where('member_id', $id)->get();
         

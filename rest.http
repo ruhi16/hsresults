@@ -39,7 +39,7 @@ content-type: application/json,
 
 
 ### User's Dashboard
-GET http://localhost:8000/api/link_membership/5019
+GET http://localhost:8000/api/link_membership/5531
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 
@@ -110,7 +110,7 @@ authorization: {{ACCESS_TOKEN}}
 
 
 ### All Members
-GET http://localhost:8000/api/members
+GET http://localhost:8000/api/member/3
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 
