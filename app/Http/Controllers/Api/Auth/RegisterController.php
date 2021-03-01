@@ -137,26 +137,26 @@ class RegisterController extends Controller
 
     
     public function link_membership(Request $request, $security_pin){
-        Member::where('user_id', Auth::user()->id)->update(['user_id' => 0]);
-
-        $member = Member::where('security_pin',$security_pin)->first();
         
-        if($member){
+        if( Member::where('security_pin',$security_pin)->first() ){
+            Member::where('user_id', Auth::user()->id)->update(['user_id' => 0]);
+
+            $member = Member::where('security_pin',$security_pin)->first();
+            
             $member->user_id = Auth::user()->id;
             $member->save();
+            
             return response()->json([
                 'member'=>$member,
                 'message' => 'User Link with Membership Info Successfully. ',
                 'success'   => true
             ], 200);
-        }else{
+        }else {
             return response()->json([
                 'message' => 'Membership Info Not Found! ',
                 'success'   => false
-        ], 200);
+            ], 200);
         }
-
-
     }
 
 
