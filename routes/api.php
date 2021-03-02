@@ -58,7 +58,7 @@ Route::get('/allusers', function (Request $request){
 Route::middleware('auth:api')->group(function(){
 
     //Route::get ('member/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
-    Route::get('   /{security_pin}', 'Api\Auth\RegisterController@link_membership');
+    Route::get('link_membership/{security_pin}', 'Api\Auth\RegisterController@link_membership');
     
     Route::resource('member', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);
 
