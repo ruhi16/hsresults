@@ -171,6 +171,34 @@ authorization: {{ACCESS_TOKEN}}
 
 
 
+### Individual Members Th Fund Initialization
+GET http://localhost:8000/api/members/16/thfundmonthcollection
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

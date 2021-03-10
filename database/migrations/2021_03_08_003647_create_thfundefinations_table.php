@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThfundspecificationsTable extends Migration
+class CreateThfundefinationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateThfundspecificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('thfundspecifications', function (Blueprint $table) {
+        Schema::create('thfundefinations', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->float('monthly_premium')->nullable();
-            $table->float('yearly_roi')->nullable();         
+            $table->integer('yearly_roi')->nullable();         
 
-            $table->datetime('date_of_activation')->nullable();
             
             $table->string('status')->nullable();
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateThfundspecificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thfundspecifications');
+        Schema::dropIfExists('thfundefinations');
     }
 }

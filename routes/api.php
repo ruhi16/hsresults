@@ -43,7 +43,10 @@ Route::put ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthUpdate'
 Route::delete ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthDelete');
 
 
-Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');    
+Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
+Route::get ('members/{id}/thfundmonthcollection', 'Api\ThfunmonthcollectionController@thfundmonthcollection');
+
+
 
 
 Route::get('/allusers', function (Request $request){

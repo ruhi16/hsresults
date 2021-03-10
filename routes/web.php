@@ -1,10 +1,28 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\User;
+
+use App\DB;
+
+use App\Loanpayment;
+use App\Loanassign;
+use App\Thfundmaster;
+use App\Thfundmonthcollection;
+use App\Thfundspecification;
+use App\Member;
+
+
+
+
 Route::get('/test', 'TestController@member');
 
 
 
 Route::get('/', function () {
+     echo "hello";
+     $thfundspecification = Thfundspecification::where('id', Thfundspecification::max('id'))->first();
+     dd($thfundspecification);
 // $epoch = time();
 // echo($epoch ."xxxxx");
 
