@@ -52,6 +52,8 @@ class ThfunmonthcollectionController extends Controller
         $thfundmonthcollection->thfund_collection_date = $now;
         $thfundmonthcollection->status = 'active';
         $thfundmonthcollection->remarks = 'na';
+
+        $thfundmonthcollection->save();
  
         
 
