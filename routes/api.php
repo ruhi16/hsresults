@@ -30,7 +30,7 @@ Route::get('/verify_email_otp/{email_otp}', 'Api\Auth\RegisterController@verify_
 // Route::get('/members', 'Api\Auth\MemberController@index');
 // Route::get('/members/{id}', 'Api\Auth\MemberController@show');
 
-
+Route::resource('thfundspecifications', 'Api\ThfundspecificationController');
 
 
 Route::resource('members', 'Api\Auth\MemberController', ['only' => ['index', 'show']]);

@@ -179,6 +179,24 @@ authorization: {{ACCESS_TOKEN}}
 
 
 
+### Individual Members Th Fund Initialization
+GET http://localhost:8000/api/thfundspecifications
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+### Individual Members Th Fund Initialization
+POST http://localhost:8000/api/thfundspecifications
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+{
+    "monthly_premium":"1000.0",
+    "yearly_roi":"8.0",
+    "date_of_activation":"2021-04-01",
+    "status":"active"
+}
+
 
 
 
