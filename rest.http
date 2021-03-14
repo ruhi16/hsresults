@@ -186,7 +186,7 @@ authorization: {{ACCESS_TOKEN}}
 
 
 ### Individual Members Th Fund Initialization
-POST http://localhost:8000/api/thfundspecifications
+POST https://localhost:8000/api/thfundspecifications
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 

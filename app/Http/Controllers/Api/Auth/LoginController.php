@@ -47,7 +47,10 @@ class LoginController extends Controller
 
 
         $user = User::where('email', request('email'))->first();  
-        if($user != null){      
+        if($user != null){ 
+            //$user->email_verified_link = $this->getRandomString(20);
+            $user->email_otp = $this->getRandomDigits(6);
+            $user->save();     
             Mail::to(request('email'))->send(new WelcomeMail($user));
         }
 
