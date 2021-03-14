@@ -33,7 +33,7 @@ class Member extends Model
 
 
     public function thfundmonthcollections(){
-        return $this->hasMany('App\Thfundmonthcollection');
+        return $this->hasMany('App\Thfundmonthcollection')->orderBy('id','desc');
     }
 
 
