@@ -18,8 +18,8 @@ use Carbon\Carbon;
 use App\User;
 use App\Member;
 
-class RegisterController extends Controller
-{
+class RegisterController extends Controller{
+    
     private $client;
     public function __construct(){
         $this->client = Client::find(2);
