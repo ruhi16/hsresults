@@ -171,7 +171,15 @@ authorization: {{ACCESS_TOKEN}}
 
 
 
-### Individual Members Th Fund Initialization
+### Individual Members Th Fund Status
+GET http://localhost:8000/api/members/16/thfundmonthstatus
+content-type: application/json
+authorization: {{ACCESS_TOKEN}}
+
+
+
+
+### Individual Members Th Fund Month Coll Submit
 GET http://localhost:8000/api/members/16/thfundmonthcollection
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
@@ -179,13 +187,21 @@ authorization: {{ACCESS_TOKEN}}
 
 
 
-### Individual Members Th Fund Initialization
+
+
+
+
+
+
+
+
+### Individual Members Th Fund Specification Status
 GET http://localhost:8000/api/thfundspecifications
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}
 
 
-### Individual Members Th Fund Initialization
+### Individual Members Th Fund Specification Submit
 POST https://localhost:8000/api/thfundspecifications
 content-type: application/json
 authorization: {{ACCESS_TOKEN}}

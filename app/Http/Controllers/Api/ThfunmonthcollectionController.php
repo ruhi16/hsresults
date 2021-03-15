@@ -22,6 +22,41 @@ use App\Member;
 
 class ThfunmonthcollectionController extends Controller
 {
+
+    public function thfundmonthstatus(Request $request, $id){
+        //$member = Auth::user()->member;
+        $member = Member::find($id);
+
+        $now = Carbon::now();
+
+        $thfundcurrmonthcollection = Thfundmonthcollection::where([
+            'member_id' => $member->id,
+            'for_month' => $now->month,
+            'for_year'  => $now->year,
+        ])->first();
+
+
+        if($thfundcurrmonthcollection){
+            return response()->json([
+                'status' => true,
+                'thfundcurrmonthcollection' => $thfundcurrmonthcollection,
+                'month' => $now->month,
+                'year' => $now->year,                
+                'member_id' => $id,
+            ]);    
+        }else{
+            return response()->json([
+                'status' => false,
+                'month' => $now->month,
+                'year' => $now->year,
+                'member_id' => $id,
+            ]);    
+        }
+
+            
+    }
+
+
     public function thfundmonthcollection(Request $request, $id){
         //$member = Auth::user()->member;
         $member = Member::find($id);
@@ -29,16 +64,11 @@ class ThfunmonthcollectionController extends Controller
         $thfundmaster = Thfundmaster::where('member_id', $member->id)->first();//where(max(id))
 
         
-         $thfundspecification = Thfundspecification::where('id', Thfundspecification::max('id'))->first();
+        $thfundspecification = Thfundspecification::where('id', Thfundspecification::max('id'))->first();
         
 
         $now = Carbon::now();
-        // $thfundmonthcollections = Thfundmonthcollection::where('member_id', $member->id)
-        //         ->where('for_month', 1)//$now->month
-        //         ->where('for_year', $now->year)->get();
-        // var_dump($thfundmonthcollections);
-        //echo "thfundmonthcollection:",$id;
-        //$abcd = Thfundefination::first();
+     
         $thfundmonthcollection = Thfundmonthcollection::firstOrNew([
             'member_id' => $member->id,
             //'thfundmaster_id'   => null,

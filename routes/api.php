@@ -44,6 +44,7 @@ Route::delete ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthDele
 
 
 Route::get ('members/{id}/loanpayments', 'Api\LoanpaymentController@monthInitialisation');
+Route::get ('members/{id}/thfundmonthstatus', 'Api\ThfunmonthcollectionController@thfundmonthstatus');
 Route::get ('members/{id}/thfundmonthcollection', 'Api\ThfunmonthcollectionController@thfundmonthcollection');
 
 
